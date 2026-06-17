@@ -4,15 +4,16 @@ cask "ds-mon" do
 
   url "https://github.com/Cherno76/DS-mon/releases/download/v#{version}/DS-mon-v#{version}.zip"
   name "DS-mon"
-  desc "macOS menu bar DeepSeek API balance monitor"
+  desc "macOS menu bar API balance & usage monitor (DeepSeek / Moonshot)"
   homepage "https://github.com/Cherno76/DS-mon"
-
-  depends_on macos: ">= :sequoia"
+ 
+  depends_on macos: :sequoia
   depends_on arch: :arm64
 
   app "DS-mon.app"
 
   zap trash: [
-    "~/Library/Preferences/com.cherno.DS-mon.plist",
+    "~/Library/Caches/com.dsmon.app/",
+    "~/Library/Preferences/com.dsmon.app.plist",
   ]
 end
